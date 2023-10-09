@@ -13,6 +13,8 @@
   --plasmic-token-system-sm: var(--token-nSjB-i5oBVRk);
   --token-_6HlPYe-MNFV: var(--antd-colorText);
   --plasmic-token-system-text: var(--token-_6HlPYe-MNFV);
+  --token-JmSkxWGGg2vx: var(--antd-colorPrimary);
+  --plasmic-token-system-primary: var(--token-JmSkxWGGg2vx);
 }
 
 .plasmic_tokens {

@@ -16,9 +16,9 @@ import * as ph from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
-  usePlasmicDataConfig,
   executePlasmicDataOp,
-  usePlasmicDataOp
+  usePlasmicDataOp,
+  usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 import {
   classNames,
@@ -39,6 +39,8 @@ createPlasmicElementProxy;
 export const PlasmicCandidate__VariantProps = new Array();
 
 export const PlasmicCandidate__ArgProps = new Array();
+
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -81,8 +83,7 @@ function PlasmicCandidate__RenderFunc(props) {
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
-  const { cache, mutate: swrMutate } = usePlasmicDataConfig();
-  const mutate = swrMutate;
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     positions: usePlasmicDataOp(() => {
       return {
@@ -281,41 +282,9 @@ function PlasmicCandidate__RenderFunc(props) {
                                       user: dataSourcesCtx?.user
                                     }
                                   );
-                                  if (
-                                    dataOp.invalidatedKeys &&
-                                    dataOp.invalidatedKeys.find(
-                                      key => key === "plasmic_refresh_all"
-                                    )
-                                  ) {
-                                    await Promise.all(
-                                      Array.from(cache.keys()).map(async key =>
-                                        mutate(key)
-                                      )
-                                    );
-                                    return response;
-                                  }
-                                  if (dataOp.invalidatedKeys) {
-                                    await Promise.all(
-                                      dataOp.invalidatedKeys.map(
-                                        async invalidateKey =>
-                                          Promise.all(
-                                            Array.from(cache.keys()).map(
-                                              async key => {
-                                                if (
-                                                  typeof key === "string" &&
-                                                  key.includes(
-                                                    `.$.${invalidateKey}.$.`
-                                                  )
-                                                ) {
-                                                  return mutate(key);
-                                                }
-                                                return Promise.resolve();
-                                              }
-                                            )
-                                          )
-                                      )
-                                    );
-                                  }
+                                  await plasmicInvalidate(
+                                    dataOp.invalidatedKeys
+                                  );
                                   return response;
                                 } catch (e) {
                                   if (!continueOnError) {

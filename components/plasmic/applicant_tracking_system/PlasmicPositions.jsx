@@ -16,9 +16,9 @@ import * as ph from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
-  usePlasmicDataConfig,
   executePlasmicDataOp,
-  usePlasmicDataOp
+  usePlasmicDataOp,
+  usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 import {
   hasVariant,
@@ -43,6 +43,8 @@ createPlasmicElementProxy;
 export const PlasmicPositions__VariantProps = new Array();
 
 export const PlasmicPositions__ArgProps = new Array();
+
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -108,8 +110,7 @@ function PlasmicPositions__RenderFunc(props) {
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
-  const { cache, mutate: swrMutate } = usePlasmicDataConfig();
-  const mutate = swrMutate;
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     positions: usePlasmicDataOp(() => {
       return {
@@ -210,7 +211,9 @@ function PlasmicPositions__RenderFunc(props) {
                               sty.h4__keLwu
                             )}
                           >
-                            {"Departments"}
+                            {
+                              "\u041f\u043e\u0434\u0440\u0430\u0437\u0434\u0435\u043b\u0435\u043d\u0438\u044f"
+                            }
                           </h4>
                           <p
                             className={classNames(
@@ -310,42 +313,9 @@ function PlasmicPositions__RenderFunc(props) {
                                               dataSourcesCtx?.userAuthToken,
                                             user: dataSourcesCtx?.user
                                           });
-                                        if (
-                                          dataOp.invalidatedKeys &&
-                                          dataOp.invalidatedKeys.find(
-                                            key => key === "plasmic_refresh_all"
-                                          )
-                                        ) {
-                                          await Promise.all(
-                                            Array.from(cache.keys()).map(
-                                              async key => mutate(key)
-                                            )
-                                          );
-                                          return response;
-                                        }
-                                        if (dataOp.invalidatedKeys) {
-                                          await Promise.all(
-                                            dataOp.invalidatedKeys.map(
-                                              async invalidateKey =>
-                                                Promise.all(
-                                                  Array.from(cache.keys()).map(
-                                                    async key => {
-                                                      if (
-                                                        typeof key ===
-                                                          "string" &&
-                                                        key.includes(
-                                                          `.$.${invalidateKey}.$.`
-                                                        )
-                                                      ) {
-                                                        return mutate(key);
-                                                      }
-                                                      return Promise.resolve();
-                                                    }
-                                                  )
-                                                )
-                                            )
-                                          );
-                                        }
+                                        await plasmicInvalidate(
+                                          dataOp.invalidatedKeys
+                                        );
                                         return response;
                                       } catch (e) {
                                         if (!continueOnError) {
