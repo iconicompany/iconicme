@@ -32,6 +32,8 @@ export const PlasmicMetricCard__ArgProps = new Array(
   "slot2"
 );
 
+const $$ = {};
+
 function useNextRouter() {
   try {
     return useRouter();

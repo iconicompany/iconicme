@@ -29,6 +29,8 @@ export const PlasmicCard__VariantProps = new Array("noTitle");
 
 export const PlasmicCard__ArgProps = new Array("children", "title");
 
+const $$ = {};
+
 function useNextRouter() {
   try {
     return useRouter();

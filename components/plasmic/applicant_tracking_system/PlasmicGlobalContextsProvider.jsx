@@ -34,7 +34,7 @@ export default function GlobalContextsProvider(props) {
       colorPrimary={
         antdConfigProviderProps && "colorPrimary" in antdConfigProviderProps
           ? antdConfigProviderProps.colorPrimary
-          : "#3940C8"
+          : "#0090FF"
       }
       colorSuccess={
         antdConfigProviderProps && "colorSuccess" in antdConfigProviderProps

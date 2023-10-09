@@ -32,6 +32,8 @@ export const PlasmicPageLayout__VariantProps = new Array();
 
 export const PlasmicPageLayout__ArgProps = new Array("children");
 
+const $$ = {};
+
 function useNextRouter() {
   try {
     return useRouter();

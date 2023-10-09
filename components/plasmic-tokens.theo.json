@@ -681,6 +681,16 @@
       }
     },
     {
+      "name": "System: Primary",
+      "type": "color",
+      "value": "var(--antd-colorPrimary)",
+      "category": "color",
+      "meta": {
+        "projectId": "4WdhSVfyEYnextDzQgbzVw",
+        "id": "JmSkxWGGg2vx"
+      }
+    },
+    {
       "name": "System: Primary Active",
       "type": "color",
       "value": "var(--antd-colorPrimaryActive)",

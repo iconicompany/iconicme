@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -39,7 +39,8 @@
           "displayName": "hostless-loading-boundary",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -91,7 +92,8 @@
             "importPath": "@plasmicpkgs/plasmic-rich-components"
           }
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "kS7YGZfVr6mU43XDQjXELc",
@@ -111,7 +113,8 @@
           "displayName": "hostless-react-chartjs-2-simple-chart",
           "componentImportPath": "@plasmicpkgs/react-chartjs-2"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -405,7 +408,7 @@
           "displayName": "plasmic-antd5-single-collapse",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerCollapse",
           "helper": {
-            "name": "accordionHelpers",
+            "name": "singleCollapseHelpers",
             "importPath": "@plasmicpkgs/antd5/skinny/registerCollapse"
           }
         },
@@ -432,13 +435,46 @@
           "name": "AntdRate",
           "displayName": "plasmic-antd5-rate",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRate"
+        },
+        {
+          "id": "9HjEuAZYoz5P",
+          "name": "AntdDateRangePicker",
+          "displayName": "plasmic-antd5-date-range-picker",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerDateRangePicker",
+          "helper": {
+            "name": "dateRangePickerHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerDateRangePicker"
+          }
+        },
+        {
+          "id": "SeYQPnK2Etda",
+          "name": "AntdSingleSlider",
+          "displayName": "plasmic-antd5-slider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider"
+        },
+        {
+          "id": "VvEzRJYSMImn",
+          "name": "AntdRangeSlider",
+          "displayName": "plasmic-antd5-range-slider",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider",
+          "helper": {
+            "name": "rangeSliderHelpers",
+            "importPath": "@plasmicpkgs/antd5/skinny/registerSlider"
+          }
+        },
+        {
+          "id": "qUBr2ytCk1sn",
+          "name": "AntdSliderMark",
+          "displayName": "plasmic-antd5-slider-mark",
+          "componentImportPath": "@plasmicpkgs/antd5/skinny/registerSlider"
         }
-      ]
+      ],
+      "customFunctions": []
     },
     {
       "projectId": "4WdhSVfyEYnextDzQgbzVw",
       "projectApiToken": "5JnFPBeesgCdLQb312I0lNbGDNzoAcw0NKyffd4Y5UBA6SR44ydG9LNTKdXm9Pmzz894SL4SPMhy4vwfQfnILQ",
-      "projectName": "Applicant tracking system",
+      "projectName": "Iconicme",
       "version": "latest",
       "cssFilePath": "plasmic/applicant_tracking_system/plasmic_applicant_tracking_system.module.css",
       "components": [
@@ -608,16 +644,43 @@
         },
         {
           "id": "M6f8TVuHxw-J",
+          "name": "PublicCardFigma",
+          "type": "managed",
+          "projectId": "4WdhSVfyEYnextDzQgbzVw",
+          "renderModuleFilePath": "plasmic/iconicme/PlasmicPublicCardFigma.jsx",
+          "importSpec": {
+            "modulePath": "PublicCardFigma.jsx"
+          },
+          "cssFilePath": "plasmic/iconicme/PlasmicPublicCardFigma.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "rO6wCTk0u2Z1",
           "name": "PublicCard",
           "type": "managed",
           "projectId": "4WdhSVfyEYnextDzQgbzVw",
-          "renderModuleFilePath": "plasmic/applicant_tracking_system/PlasmicPublicCard.jsx",
+          "renderModuleFilePath": "plasmic/iconicme/PlasmicPublicCard.jsx",
           "importSpec": {
             "modulePath": "PublicCard.jsx"
           },
-          "cssFilePath": "plasmic/applicant_tracking_system/PlasmicPublicCard.module.css",
+          "cssFilePath": "plasmic/iconicme/PlasmicPublicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "TAyIN6nWvCIM",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "4WdhSVfyEYnextDzQgbzVw",
+          "renderModuleFilePath": "plasmic/iconicme/PlasmicNewPage.jsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page.jsx"
+          },
+          "cssFilePath": "plasmic/iconicme/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
         }
       ],
       "icons": [
@@ -697,6 +760,11 @@
           "id": "apwxoCDFgSQ5",
           "name": "Group 1578",
           "filePath": "../public/plasmic/applicant_tracking_system/images/group1578.svg"
+        },
+        {
+          "id": "8ub--OGZyqbK",
+          "name": "image",
+          "filePath": "../public/plasmic/iconicme/images/image.png"
         }
       ],
       "indirect": false,
@@ -714,7 +782,8 @@
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
-      ]
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {
@@ -731,6 +800,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.311",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.311/dist/plasmic.schema.json"
+  "cliVersion": "0.1.314",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.314/dist/plasmic.schema.json"
 }

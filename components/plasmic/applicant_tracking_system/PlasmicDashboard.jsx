@@ -41,6 +41,8 @@ export const PlasmicDashboard__VariantProps = new Array();
 
 export const PlasmicDashboard__ArgProps = new Array();
 
+const $$ = {};
+
 function useNextRouter() {
   try {
     return useRouter();

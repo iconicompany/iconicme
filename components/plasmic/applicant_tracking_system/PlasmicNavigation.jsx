@@ -40,6 +40,8 @@ export const PlasmicNavigation__VariantProps = new Array();
 
 export const PlasmicNavigation__ArgProps = new Array();
 
+const $$ = {};
+
 function useNextRouter() {
   try {
     return useRouter();
